@@ -36,7 +36,7 @@ public class UserServiceImplTest {
 	}
 	@Test
 	public void TestDeleteUser() {
-		us.deleteUser(u.getId().toString());
+		us.deleteUser("1");
 		System.out.println("Done Deleting");
 
 	}
@@ -44,12 +44,10 @@ public class UserServiceImplTest {
 	public void TestUpdateUser() {
 		u.setLastName("Arfaoui");
 		us.updateUser(u);
-		System.out.println(u);
 	}
 	@Test
 	public void TestRetrieveUser() {
-		us.retrieveUser(u.getId().toString());
-		System.out.println(u);
+		us.retrieveUser("4");
 	}
 	
 
