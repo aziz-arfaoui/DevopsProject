@@ -42,34 +42,39 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public User addUser(User u) {
-		// TODO Log à ajouter en début de la méthode 
+		l.info("In method addContrat");
 		User u_saved = userRepository.save(u); 
-		// TODO Log à ajouter à la fin de la méthode 
+		l.info("out of method addContrat");
 		return u_saved; 
 	}
 
 	@Override 
 	public User updateUser(User u) { 
-		// TODO Log à ajouter en début de la méthode 
+		l.info("In method updateContrat");
 		User u_saved = userRepository.save(u); 
-		// TODO Log à ajouter à la fin de la méthode 
-		return u_saved; 
+		l.info("out of method updateContrat");
+		return u_saved;
 	}
 
 	@Override
 	public void deleteUser(String id) {
-		// TODO Log à ajouter en début de la méthode 
+		l.info("In method deleteContrat");
 		userRepository.deleteById(Long.parseLong(id)); 
-		// TODO Log à ajouter à la fin de la méthode 
+		l.info("out of  method deleteContrat");
 	}
 
 	@Override
 	public User retrieveUser(String id) {
-		// TODO Log à ajouter en début de la méthode 
-		//User u =  userRepository.findById(Long.parseLong(id)).orElse(null);
-		User u =  userRepository.findById(Long.parseLong(id)).get(); 
-		// TODO Log à ajouter à la fin de la méthode 
-		return u; 
+		User us = null ;
+		try{
+			l.info("in  method retrieveContrat");
+			User u =  userRepository.findById(Long.parseLong(id)).get(); 
+			l.info("out of  method retrieveContrat");
+		}
+		catch(Exception e){
+			l.error("error in retrieveContrat"+ e);
+		}
+		return us; 
 	}
 
 }
